@@ -8,6 +8,7 @@ use app\controllers\LogoutController;
 use app\controllers\SignupController;
 use app\controllers\HomeController;
 use app\controllers\LoginController;
+use app\controllers\TransactionController;
 use app\Router;
 use App\SessionWrapper;
 
@@ -29,6 +30,8 @@ $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'storeLogin']);
 $router->post('/logout', [LogoutController::class, 'logout']);
 $router->get('/logout', [LogoutController::class, 'logout']);
+$router->post('/delete/transaction', [TransactionController::class, 'deleteTransaction']);
+$router->post('/create/transaction', [TransactionController::class, 'createTransaction']);
 
 (new App(
     $router,

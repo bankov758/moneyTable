@@ -24,17 +24,13 @@ class Transaction extends Model
         return $invoice ? $invoice : [];
     }
 
-    public function find(int $invoiceId): array
+    public function delete(int $transactionId): void
     {
-        $selectStatement = $this->getDb()->prepare(
-            'select invoices.id, amount, full_name 
-                   from invoices 
-                   left join users on users.id = user_id
-                   where invoices.id = ?'
+        $deleteStatement = $this->getDb()->prepare(
+            ' delete from transactions 
+                   where id = ? '
         );
-        $selectStatement->execute([$invoiceId]);
-        $invoice = $selectStatement->fetch();
-        return $invoice ? $invoice : [];
+        $deleteStatement->execute([$transactionId]);
     }
 
 }

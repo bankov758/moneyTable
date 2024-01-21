@@ -27,6 +27,14 @@ class User extends Model
         return $user ? $user : [];
     }
 
+    public function getById(int $id): array
+    {
+        $selectStatement = $this->getDb()->prepare(' select * from users where id = ? ');
+        $selectStatement->execute([$id]);
+        $user = $selectStatement->fetch();
+        return $user ? $user : [];
+    }
+
     public function isEmailInUse(string $email): bool
     {
         $result = $this->getDb()->prepare(' select * from users where email = ? ');

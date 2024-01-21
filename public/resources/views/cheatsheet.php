@@ -191,6 +191,7 @@
                     <?php if (!empty($transactions)): ?>
                         <?php foreach ($transactions as $transaction): ?>
                             <?php
+                            $dynamicForm = "form" . $transaction['id'];
                             $dynamicTableClass = match (true) {
                                 $transaction['amount'] > 0 => "table-success",
                                 $transaction['amount'] < 0 => 'table-danger',
@@ -203,7 +204,12 @@
                                 <td><?= $transaction['amount']?></td>
                                 <td><?= $transaction['date']?></td>
                                 <td><?= $transaction['description']?></td>
-                                <td><a class="d-flex align-items-center" href="../forms/validation/">delete</a></td>
+                                <td>
+                                    <form action="/delete/transaction" method="post" id="<?= $dynamicForm?>">
+                                        <input type="hidden" name="transactionId" value="<?= $transaction['id']?>">
+                                        <button type="submit" form="<?= $dynamicForm?>" value="Submit" class="btn btn-danger">delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     <?php endif ?>
@@ -220,12 +226,12 @@
 
         <div>
             <div class="bd-example-snippet bd-code-snippet"><div class="bd-example m-0 border-0">
-                    <form class="row g-3">
+                    <form class="row g-3" method="post" action="/create/transaction" >
                         <div class="col-md-4">
                             <label for="validationServerUsername" class="form-label">Amount</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend3">$</span>
-                                <input type="text" class="form-control is-valid" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
+                                <input name="amount" type="text" class="form-control" id="validationServerUsername" aria-describedby="inputGroupPrepend3" required>
                                 <div class="invalid-feedback">
                                     Please enter a number.
                                 </div>
@@ -233,43 +239,19 @@
                         </div>
                         <div class="col-md-6">
                             <label for="validationServer03" class="form-label">Description</label>
-                            <input type="text" class="form-control is-invalid" id="validationServer03" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid city.
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="validationServer04" class="form-label">State</label>
-                            <select class="form-select is-invalid" id="validationServer04" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option>...</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Please select a valid state.
-                            </div>
+                            <input name="description" type="text" class="form-control" id="validationServer03" required>
                         </div>
                         <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                                <label class="form-check-label" for="invalidCheck3">
-                                    Agree to terms and conditions
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Submit form</button>
+                            <button class="btn btn-primary" type="submit">Create</button>
                         </div>
                     </form>
-                </div></div>
-
+                </div>
+            </div>
         </div>
     </article>
 </div>
 
-<script src="/resources/js/bootstrap.bundle.min.js"></script>
-<script src="/resources/js/cheatsheet.js"></script>
+<!--<script src="/resources/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="/resources/js/cheatsheet.js"></script>-->
 </body>
 </html>
