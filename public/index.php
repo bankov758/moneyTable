@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
-
-use app\App;
-use app\Config;
-use app\controllers\LogoutController;
-use app\controllers\SignupController;
 use app\controllers\HomeController;
 use app\controllers\LoginController;
+use app\controllers\LogoutController;
+use app\controllers\SignupController;
 use app\controllers\TransactionController;
-use app\Router;
-use App\SessionWrapper;
+use app\core\App;
+use app\core\Config;
+use app\core\Router;
+use app\core\SessionWrapper;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/loader.php';

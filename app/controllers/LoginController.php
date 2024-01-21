@@ -2,10 +2,9 @@
 
 namespace app\controllers;
 
+use app\core\SessionWrapper;
+use app\core\View;
 use app\models\User;
-use App\SessionWrapper;
-use app\View;
-use MongoDB\Driver\Session;
 
 class LoginController
 {

@@ -2,8 +2,8 @@
 
 namespace app\models;
 
-use app\App;
-use App\DB;
+use app\core\App;
+use app\core\DB;
 
 abstract class Model
 {
@@ -18,5 +18,22 @@ abstract class Model
     {
         return $this->db;
     }
+
+//    public function register(array $userInfo, array $invoiceInfo): int
+//    {
+//        try {
+//            $this->getDb()->beginTransaction();
+//            //$userId = $this->userModel->get($userInfo['email']);
+//            $invoiceId = $this->invoiceModel->create($invoiceInfo['amount'],5);
+//            $this->getDb()->commit();
+//        } catch (Exception $e) {
+//            if ($this->getDb()->inTransaction()){
+//                $this->getDb()->rollBack();
+//            }
+//            throw $e;
+//        }
+//
+//        return $invoiceId;
+//    }
 
 }

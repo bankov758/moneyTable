@@ -1,6 +1,6 @@
 <?php
 
-use App\SessionWrapper;
+use app\core\SessionWrapper;
 
 function old($key)
 {

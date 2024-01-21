@@ -2,10 +2,9 @@
 
 namespace app\controllers;
 
+use app\core\View;
 use app\models\User;
-use app\View;
 use Exception;
-use JetBrains\PhpStorm\NoReturn;
 
 class SignupController
 {

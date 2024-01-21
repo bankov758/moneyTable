@@ -2,10 +2,9 @@
 
 namespace app\controllers;
 
-use app\models\Transaction;
+use app\core\View;
 use app\models\SignUp;
-use app\models\User;
-use app\View;
+use app\models\Transaction;
 use Exception;
 
 class HomeController
@@ -21,6 +20,6 @@ class HomeController
         }
         $transactionModel = new Transaction();
         $transactions = $transactionModel->findAll($_SESSION['user_id']);
-        return View::make('cheatsheet', ['transactions' => $transactions]);
+        return View::make('index', ['transactions' => $transactions]);
     }
 }
