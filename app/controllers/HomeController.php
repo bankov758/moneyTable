@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\core\SessionWrapper;
 use app\core\View;
 use app\models\SignUp;
 use app\models\Transaction;
@@ -19,7 +20,7 @@ class HomeController
             exit();
         }
         $transactionModel = new Transaction();
-        $transactions = $transactionModel->findAll($_SESSION['user_id']);
+        $transactions = $transactionModel->findAll(SessionWrapper::getLoggedInUserId());
         return View::make('index', ['transactions' => $transactions]);
     }
 }

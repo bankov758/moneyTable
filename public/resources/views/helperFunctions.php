@@ -1,5 +1,7 @@
 <?php
 
+namespace app;
+
 use app\core\SessionWrapper;
 
 function old($key)
@@ -9,5 +11,9 @@ function old($key)
 
 function sumValues(array $transactions)
 {
-     foreach ($transactions)
+    $sum = 0;
+    foreach ($transactions as $transaction){
+        $sum += $transaction['amount'];
+    }
+    return $sum;
 }

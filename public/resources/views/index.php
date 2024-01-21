@@ -1,3 +1,7 @@
+<?php
+use function app\sumValues;
+?>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 <head>
@@ -215,6 +219,10 @@
                     <?php endif ?>
                     </tbody>
                 </table>
+                <?php
+                include 'helperFunctions.php';
+                echo '<p>' . 'Balance: ' . sumValues($transactions) . '</p>';
+                ?>
             </div>
         </div>
     </section>

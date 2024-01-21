@@ -26,4 +26,9 @@ class SessionWrapper
         unset($_SESSION[self::FLASH]);
         $_SESSION[self::FLASH] = null;
     }
+
+    public static function getLoggedInUserId(): int
+    {
+        return $_SESSION['user_id'];
+    }
 }
