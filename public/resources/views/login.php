@@ -172,7 +172,7 @@
         <h1 class="h3 mb-3 fw-normal">Please login</h1>
 
         <div class="form-floating">
-            <input name="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" value="<?= $_SESSION['flash']['email'] ?? "" ?>">
+            <input name="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" value="<?= old('email') ?>">
 
             <label for="floatingEmail">Email address</label>
         </div>
@@ -196,7 +196,7 @@
         <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
     </form>
 </main>
-<script src="/resources/js/bootstrap.bundle.min.js"></script>
+<!--<script src="/resources/js/bootstrap.bundle.min.js"></script>-->
 
 </body>
 </html>

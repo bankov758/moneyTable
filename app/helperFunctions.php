@@ -1,7 +1,5 @@
 <?php
 
-namespace app;
-
 use app\core\SessionWrapper;
 
 function old($key)

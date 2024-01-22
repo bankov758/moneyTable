@@ -1,7 +1,3 @@
-<?php
-use function app\sumValues;
-?>
-
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 <head>
@@ -12,7 +8,7 @@ use function app\sumValues;
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.118.2">
-    <title>Cheatsheet · Bootstrap v5.3</title>
+    <title>Money Table Home</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/cheatsheet/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -219,10 +215,7 @@ use function app\sumValues;
                     <?php endif ?>
                     </tbody>
                 </table>
-                <?php
-                include 'helperFunctions.php';
-                echo '<p>' . 'Balance: ' . sumValues($transactions) . '</p>';
-                ?>
+                <p> <?= sumValues($transactions)?> </p>
             </div>
         </div>
     </section>

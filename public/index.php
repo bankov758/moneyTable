@@ -10,10 +10,12 @@ use app\core\Config;
 use app\core\Router;
 use app\core\SessionWrapper;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../app/loader.php';
 
 session_start();
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../app/loader.php';
+require __DIR__ . '/../app/helperFunctions.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
