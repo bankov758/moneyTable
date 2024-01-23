@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\core\SessionWrapper;
 use app\core\View;
 use app\models\User;
 use Exception;
@@ -27,6 +28,8 @@ class SignupController
             'confirmPassword' => $_POST['confirmPassword']
         ];
         if (!$userModel->validateSignup($data)) {
+            SessionWrapper::flash('email', $data['email']);
+            SessionWrapper::flash('username', $data['username']);
             return View::make('signup', ['errors' => $userModel->getErrors()]);
         }
         $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);

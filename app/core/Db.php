@@ -13,13 +13,12 @@ use PDOException;
  */
 class DB
 {
-    //PHP Data Objects provides a consistent interface to interact with different database
+    //PHP Data Objects provides a consistent interface to interact with different databases
     private PDO $pdo;
 
     public function __construct(array $config)
     {
-        $defaultOptions = [                                     // stops the emulation of the prepared statements -> we can not reuse the same parameter
-            //PDO::ATTR_EMULATE_PREPARES   => false,              // and everything is returned in its type and not as string
+        $defaultOptions = [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,   // the result is an associative array with the column names being the key
         ];
 

@@ -215,7 +215,7 @@
                     <?php endif ?>
                     </tbody>
                 </table>
-                <p> <?= sumValues($transactions)?> </p>
+                <p> Balance: <?= sumValues($transactions)?> </p>
             </div>
         </div>
     </section>
@@ -252,7 +252,5 @@
     </article>
 </div>
 
-<!--<script src="/resources/js/bootstrap.bundle.min.js"></script>-->
-<!--<script src="/resources/js/cheatsheet.js"></script>-->
 </body>
 </html>

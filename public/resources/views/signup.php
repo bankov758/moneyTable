@@ -171,14 +171,14 @@
         <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
         <div class="form-floating">
-            <input name="username" type="text" class="form-control" id="username" placeholder="name@example.com">
+            <input name="username" type="text" class="form-control" id="username" placeholder="name@example.com"  value="<?= old('username') ?>">
             <label for="username">Username</label>
         </div>
         <?php if(!empty($errors['username'])):?>
             <div class="text-danger"><?= $errors['username']; ?></div>
         <?php endif;?>
         <div class="form-floating">
-            <input name="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+            <input name="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com"  value="<?= old('email') ?>">
             <label for="floatingEmail">Email address</label>
         </div>
         <?php if(!empty($errors['email'])):?>
