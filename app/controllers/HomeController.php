@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use app\core\SessionWrapper;
 use app\core\View;
-use app\models\SignUp;
 use app\models\Transaction;
 use Exception;
 

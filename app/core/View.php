@@ -17,6 +17,15 @@ class View
         return new static($view, $params);
     }
 
+
+    /**
+     * Loads a view file, checks if it exists, extracts parameters, captures the output of the view file using
+     * output buffering, and returns the rendered view as a string. If the view is not found,
+     * it throws a ViewNotFoundException.
+     *
+     * @return string
+     * @throws ViewNotFoundException
+     */
     public function render(): string
     {
         $viewPath = VIEWS_PATH . '/' . $this->view . '.php';
@@ -26,7 +35,7 @@ class View
         }
 
         foreach($this->params as $key => $value) {
-            $$key = $value;// moje i edno dolarche (moje bi)
+            $$key = $value;// uses the double dollar sign ($$) to dynamically create variables based on the array keys and assigns them the corresponding values
         }
 
         ob_start();//start the output buffering so we can return the view as a string
