@@ -24,11 +24,6 @@ class Config
         ];
     }
 
-//    public function getDb()
-//    {
-//        return $this->config['db'];
-//    }
-
     public function __get(string $name)
     {
         return $this->config[$name] ?? null;

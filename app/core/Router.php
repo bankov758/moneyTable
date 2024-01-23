@@ -36,23 +36,26 @@ class Router
         return $this->routes;
     }
 
+    /**
+     * @throws RouteNotFoundException
+     */
     public function resolve(string $requestUri, string $requestMethod)
     {
-        $route = explode('?', $requestUri)[0];
-        $action = $this->routes[$requestMethod][$route] ?? null;
-        if (! $action) {
+        $route = explode('?', $requestUri)[0];          //separate the address from the parameters
+        $action = $this->routes[$requestMethod][$route] ?? null; //get the registered action
+        if (!$action) {
             throw new RouteNotFoundException();
         }
-        if (is_callable($action)) {
+        if (is_callable($action)) {             //if only a method name is registered directly call it
             return call_user_func($action);
         }
         if (is_array($action)) {
-            [$class, $method] = $action;
+            [$class, $method] = $action;        //if we have a given class and method name
 
             if (class_exists($class)) {
                 $class = new $class();
                 if (method_exists($class, $method)) {
-                    return call_user_func_array([$class, $method], []);
+                    return call_user_func_array([$class, $method], []);     //if the class and its method exist do callback
                 }
             }
         }

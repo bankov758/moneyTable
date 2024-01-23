@@ -12,9 +12,9 @@ class View
     ) {
     }
 
-    public static function make(string $view, array $params = []): static
+    public static function make(string $view, array $params = []): static // static return type means that the function returns an instance of the class
     {
-        return new static($view, $params);
+        return new static($view, $params); //creates a new instance of the class
     }
 
 
@@ -34,6 +34,7 @@ class View
             throw new ViewNotFoundException();
         }
 
+        //$$ is used to dynamically create variable names based on the values of other variables
         foreach($this->params as $key => $value) {
             $$key = $value;// uses the double dollar sign ($$) to dynamically create variables based on the array keys and assigns them the corresponding values
         }

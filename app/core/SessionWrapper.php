@@ -30,4 +30,10 @@ class SessionWrapper
     {
         return $_SESSION['user_id'];
     }
+
+    public static function isLogged(): int
+    {
+        return isset($_SESSION['user_id']);
+    }
+
 }

@@ -14,8 +14,8 @@ class HomeController
      */
     public function index(): string
     {
-        if (!isset($_SESSION['user_id'])) {
-            header('location: /login');
+        if (!SessionWrapper::isLogged()) {
+            header('location: /login'); //sending location header -> redirect
             exit();
         }
         $transactionModel = new Transaction();

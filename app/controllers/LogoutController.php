@@ -8,7 +8,7 @@ class LogoutController
 {
     #[NoReturn] public function logout(): void
     {
-        session_destroy();
+        session_destroy(); //unsets all session variables
         header('location: /login');
         exit();
     }
