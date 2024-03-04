@@ -11,11 +11,11 @@ class User extends Model
         return $this->errors;
     }
 
-    public function create(string $email, string $name, string $password): int
+    public function create(string $email, string $username, string $password): int
     {
-        $userCreateStatement = $this->getDb()->prepare(' insert into users (full_name, email, password, created_at)
+        $userCreateStatement = $this->getDb()->prepare(' insert into users (username, email, password, created_at)
                                                               values (?, ?, ?, now()) ');
-        $userCreateStatement->execute([$name, $email, $password]);
+        $userCreateStatement->execute([$username, $email, $password]);
         return (int)$this->getDb()->lastInsertId();
     }
 

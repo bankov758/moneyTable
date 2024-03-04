@@ -222,7 +222,7 @@
     <article class="my-3" id="validation">
         <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
             <h3>Enter a new transaction</h3>
-            <a class="d-flex align-items-center" href="../forms/validation/">Documentation</a>
+            <a class="d-flex align-items-center" href="https://github.com/bankov758/moneyTable">Documentation</a>
         </div>
 
         <div>
